@@ -9,8 +9,10 @@ def getValues():
     likeBox.delete(0, tk.END)
     dislikeBox.delete(0, tk.END)
     # fetch likes and dislikes and make them a variable
-    robloxLikes = robloxpy.game.Place.votes(str(robloxGameID))  # i have no clue how to get this going with the pre-release lib
-    robloxDislikes = robloxpy.game.Internal.GetGameDislikes(str(robloxGameID))
+    # robloxLikes = robloxpy.game.Place.votes(str(robloxGameID))  # i have no clue how to get this going with the pre-release lib
+    # commenting that out until robloxpy get some documentation xd
+    robloxLikes = robloxpy.Game.Internal.GetGameLikes(str(robloxGameID))
+    robloxDislikes = robloxpy.Game.Internal.GetGameDislikes(str(robloxGameID))  # both this line and above require current stable release of robloxpy
     # fill boxes with variables
     likeBox.insert(0, str(robloxLikes))
     dislikeBox.insert(0, str(robloxDislikes))
